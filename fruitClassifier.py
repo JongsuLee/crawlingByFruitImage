@@ -21,5 +21,11 @@ def classify(img):
     y = " ".join(str(x) for x in y_class)
     y = int(y)
     res = labels[y]
-    
+    print(f'과일명: {res}')
+    print()
+    print(f'결과표: {answer}')
+    print()
+    print(f'예측치: {y_class}')
+    print()
+
     return res
