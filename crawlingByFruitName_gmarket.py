@@ -43,21 +43,26 @@ def crawl(item):
         else:
             price = int(price)
         
-        weight = 1
+        weight = None
         for x in title.split():
             if 'kg' in x:
                 weight = num_filter.sub('', x.split()[0])
                 weight = float(weight[0]) * 10
+                break
             elif 'g' in x:
                 weight = num_filter.sub('', x.split()[0])
                 weight = float(weight) / 10
+                break
         
-        unitPrice = str(int(price / weight))
+        if weight:
+            unitPrice = str(int(price / weight))
+        else:
+            unitPrice = ""
 
         if len(unitPrice) > 3:
             result = ""
 
-            for j in range(len(unitPrice)):
+            for j in range(1, len(unitPrice) + 1):
                 if j % 3 == 1 and j // 3 > 0:
                     result = unitPrice[-1 * j] + ','  + result
                 else:

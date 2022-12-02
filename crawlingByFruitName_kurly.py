@@ -25,24 +25,26 @@ def crawl(item):
     for i, frame in enumerate(productsFrame[:5]):
         img = frame.find_element(By.TAG_NAME, 'img').get_attribute('src')
         spans = frame.find_elements(By.TAG_NAME, 'span')
-        weight = 1
+        weight = None
         for x in spans[2].text.split():
             if 'kg' in x:
                 weight = float(x.replace('kg', '')) * 10
+                break
             elif 'g' in x:
                 weight = float(x.replace('g', '')) / 100
+                break
 
-        if '%' in spans[3].text:
-            price = int(spans[4].text.split()[-2].replace(',', ''))
-        else:
-            price = int(spans[3].text.split()[-2].replace(',', ''))
+        price = int(frame.find_element(By.CLASS_NAME, 'sales-price').text.split()[0].replace(',', ''))
         
-        unitPrice = str(int(price / weight))
+        if weight:
+            unitPrice = str(int(price / weight))
+        else:
+            unitPrice = ""
 
         if len(unitPrice) > 3:
             result = ""
 
-            for j in range(len(unitPrice)):
+            for j in range(1, len(unitPrice) + 1):
                 if j % 3 == 1 and j // 3 > 0:
                     result = unitPrice[-1 * j] + ','  + result
                 else:

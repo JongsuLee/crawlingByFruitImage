@@ -76,7 +76,7 @@ def showCrawled(kurly_dict, gmarket_dict):
         {style}
         <div class="outframe">
             <div class="itemframe">
-                <div class="marketname">{"Kurly"}</div>
+                <h1 class="marketname">{"Kurly"}</h1>
                 <div class="items">
                     <div class="item">
                         <a href="{kurly_dict[1]["url"]}" target="_blank">
@@ -131,7 +131,7 @@ def showCrawled(kurly_dict, gmarket_dict):
                 </div>
             </div>
             <div class="itemframe">
-                <div class="marketname">{"G-market"}</div>
+                <h1 class="marketname">{"G-market"}</h1>
                 <div class="items">
                     <div class="item">
                         <a href="{gmarket_dict[1]["url"]}" target="_blank">
