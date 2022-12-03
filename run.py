@@ -28,6 +28,7 @@ if imgFile:
     st.image(img)
 
     item = classifier.classify(saved_img_path)
+    print(f'fruit: {item}')
     kurly_dict = kurly.crawl(item)
     gmarket_dict = gmarket.crawl(item)
     item = None
