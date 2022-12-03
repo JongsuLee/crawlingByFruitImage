@@ -1,5 +1,5 @@
-selenium
-tensorflow
-pandas
-streamlit
-webdriver-manager
+selenium==4.7.0
+tensorflow==2.8.0
+pandas==1.5.2
+streamlit==1.15.2
+webdriver-manager==3.8.5
