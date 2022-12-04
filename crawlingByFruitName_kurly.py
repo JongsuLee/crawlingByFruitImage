@@ -9,6 +9,7 @@ import os
 
 
 def crawl(item):
+    print('start')
     print(f'pwd: {os.listdir('.')}')
     options = Options()
     options.add_argument('--headless')
