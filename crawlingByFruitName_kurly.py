@@ -10,7 +10,7 @@ import os
 
 def crawl(item):
     print('start')
-    print(f'pwd: {os.listdir('.')}')
+    print(f'pwd: {os.listdir(".")}')
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
