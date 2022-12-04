@@ -1,5 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
@@ -7,7 +8,9 @@ import time
 import re
 
 def crawl(item):
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    options = Options()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     driver.get('https://www.gmarket.co.kr/')
 
