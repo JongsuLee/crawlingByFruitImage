@@ -9,7 +9,7 @@ import os
 
 
 def crawl(item):
-    print(os.listdir('./'))
+    print(f'pwd: {os.listdir('.')}')
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
