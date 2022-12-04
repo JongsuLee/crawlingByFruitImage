@@ -5,9 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 import time
+import os
 
 
 def crawl(item):
+    print(os.listdir('./'))
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
