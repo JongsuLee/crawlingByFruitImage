@@ -10,7 +10,8 @@ import re
 def crawl(item):
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
 
     driver.get('https://www.gmarket.co.kr/')
 
