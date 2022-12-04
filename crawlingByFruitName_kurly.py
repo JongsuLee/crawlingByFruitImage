@@ -1,4 +1,5 @@
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -9,14 +10,12 @@ import os
 
 
 def crawl(item):
-    print('start')
-    print(f'pwd: {os.listdir(".")}')
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--single-process')
     options.add_argument('--disable-dev-shm-usage')
-    service = Service('chromedriver')
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
     kurly = 'https://www.kurly.com/main'
